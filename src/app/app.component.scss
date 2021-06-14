@@ -3,60 +3,28 @@
     text-align: center;
   }
 
-  .root__main__grid {
+  .root__main_grid {
     display: grid;
     grid-template-rows: repeat(6, 1fr);
-  }
-
-  .row {
     grid-template-columns: repeat(6, 1fr);
   }
 
-  .row_red {
-    background-color: red;
-  }
-
-  .row_pink {
-    background-color: pink;
-  }
-
-  .row_yellow {
-    background-color: yellow;
-  }
-
-  .row_green {
-    background-color: green;
-  }
-
-  .row_blue {
-    background-color: blue;
+  .root__main_background-color-orange {
+    background-color: orange;
   }
 
   .button_margin_10px {
     margin: 10px;
   }
 
-  .button_lightblue {
-    background-color: lightblue;
+  .button_justify-self {
+    justify-self: center;
   }
-
-  .button_blue {
-    background-color: blue;
-  }
-
-  .button_primary-off {
-    background-color: rgb(141, 141, 168);
-  }
-
   .button_on {
-    background-color: rgb(63, 214, 63);
+    background-color: yellow;
   }
 
   .button_off {
-    background-color: rgb(3, 48, 3);
-  }
-
-  .button_orange {
-    background-color: rgb(230, 229, 227);
+    background-color: blue;
   }
 }
