@@ -1,0 +1,15 @@
+:host {
+  display: inline-block;
+
+  .answer_isClicked {
+    background-color: orange;
+  }
+
+  .answer_correct {
+    background-color: green;
+  }
+
+  .answer_incorrect {
+    background-color: red;
+  }
+}

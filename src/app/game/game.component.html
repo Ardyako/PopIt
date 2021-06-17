@@ -1,0 +1,13 @@
+<app-question [questionText]="gameData.question"></app-question>
+<div class="game_grid">
+    <app-answer
+        disabled=true
+        *ngFor="let value of gameData.answers"
+        [answerText]="value.answer"
+        [state]="value.state"
+        [isCorrect]="value.isCorrect"
+        [isInCorrect]="value.isInCorrect"
+        (clickEmitter)="clickHandler($event)"
+    ></app-answer>
+</div>
+

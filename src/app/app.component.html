@@ -1,10 +1,9 @@
-<div class="root__main_center root__main_grid root__main_background-color-orange">
-    <button
-        *ngFor="let value of status; index as i"
-        mat-fab
-        class="button button_margin_10px button_justify-self"
-        [ngClass]="status[i] ? 'button_on' : 'button_off'"
-        (click)="toggleHandler(i)"
-    >
-    </button>
+<div class="root_center">
+    <h1>Game</h1>
+    <app-game
+        *ngIf="visible"
+        [gameData]="questions[i]"
+    ></app-game>
+    <h2 *ngIf="!visible">GAME OVER!</h2>
+    <button disabled="disabled" (click)="clickNextHandler()">Next</button>
 </div>
