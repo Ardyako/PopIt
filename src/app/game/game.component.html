@@ -1,13 +1,26 @@
-<app-question [questionText]="gameData.question"></app-question>
+<h1>Game</h1>
+
+<app-question [questionText]="gameData[i].question"></app-question>
 <div class="game_grid">
     <app-answer
-        disabled=true
-        *ngFor="let value of gameData.answers"
+        *ngFor="let value of gameData[i].answers"
+        [class.game_paused]="!disabled"
         [answerText]="value.answer"
-        [state]="value.state"
+        [selected]="value.selected"
         [isCorrect]="value.isCorrect"
         [isInCorrect]="value.isInCorrect"
         (clickEmitter)="clickHandler($event)"
     ></app-answer>
 </div>
 
+<div [ngSwitch]="gameState">
+    <h2 *ngSwitchCase="1">YOU WIN!</h2>
+    <h2 *ngSwitchCase="0">GAME OVER!</h2>
+    <button
+        *ngSwitchDefault
+        (click)="clickNextHandler()"
+        [disabled]="disabled"
+    >
+        Next
+    </button>
+</div>

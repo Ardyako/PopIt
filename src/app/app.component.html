@@ -1,9 +1,3 @@
 <div class="root_center">
-    <h1>Game</h1>
-    <app-game
-        *ngIf="visible"
-        [gameData]="questions[i]"
-    ></app-game>
-    <h2 *ngIf="!visible">GAME OVER!</h2>
-    <button disabled="disabled" (click)="clickNextHandler()">Next</button>
+    <app-game [gameData]="(questions | async)!"></app-game>
 </div>

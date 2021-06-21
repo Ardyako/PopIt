@@ -1,19 +1,13 @@
 :host {
   display: block;
-}
-.game_grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-.correct {
-  background-color: green;
-}
 
-.incorrect {
-  background-color: red;
-}
+  .game_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 
-.selected {
-  background-color: red;
+  .game_paused {
+    pointer-events: none;
+  }
 }

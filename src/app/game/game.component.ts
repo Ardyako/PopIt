@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { DataService } from '../data-service/data.service';
+import { AnswerModel } from '../models/answer';
 import { Game } from '../models/game';
 
 @Component({
@@ -11,57 +14,67 @@ import { Game } from '../models/game';
 export class GameComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input()
-  public gameData!: Game;
+  public gameData!: Array<Game>;
 
-  // @Output()
-  // public endEmitter: EventEmitter<boolean>;
+  private _answermodel!: AnswerModel;
+  public get answermodel(): AnswerModel {
+    return this._answermodel;
+  }
+
+  public i: number = 0;
+  public gameState!: number;
+  public disabled: boolean = true;
+
 
   public constructor(private _changeDetectorRef: ChangeDetectorRef) {
-    console.log('constructor game')
+  }
+
+  public clickNextHandler() {
+    this.i++;
+    this.disabled = true;
   }
 
   public clickHandler(answer: string): void {
-    console.log('clickHandler game')
 
-    for (let { index, item } of this.gameData.answers.map((item, index) => ({ index, item }))) {
+    //this.answermodel.checkAnswer(this.gameData, answer, this.i);
+
+    for (let item of this.gameData[this.i].answers) {
       if (item.answer == answer) {
-        if (item.state) {
+        if (item.selected) {
           if (item.correctAnswer) {
-            item.state = false;
+            item.selected = false;
             item.isCorrect = true;
+            this.disabled = false
+            if (this.i == this.gameData.length - 1) {
+              this.gameState = 1;
+              this.disabled = false;
+            }
           }
           else {
-            item.state = false;
+            item.selected = false;
             item.isInCorrect = true;
+            this.gameState = 0;
+            this.disabled = false;
           }
         }
         else {
-          item.state = true;
+          item.selected = true;
         }
       }
       else {
-        item.state = false;
+        item.selected = false;
       }
     }
-
-
-
-    // //this.clickEmitter.emit(this.data.lastName);
-    // this.gameData.answers[0].state = false;
-
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges game', changes)
   }
 
-
   public ngOnInit(): void {
-    console.log('ngOnInit game')
+    this._answermodel = new AnswerModel(this.disabled);
   }
 
   public ngOnDestroy(): void {
-    console.log('ngOnDestroy ')
   }
 
 }

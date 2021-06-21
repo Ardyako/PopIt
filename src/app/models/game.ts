@@ -1,7 +1,7 @@
-export type answer = {
+export interface answer {
   answer: string;
   correctAnswer: boolean;
-  state: boolean;
+  selected: boolean;
   isCorrect: boolean;
   isInCorrect: boolean;
 }
@@ -21,4 +21,9 @@ export class Game {
     private _answers: answer[]
   ) { }
 
+
+
 }
+
+
+

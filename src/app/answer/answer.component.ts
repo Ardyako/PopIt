@@ -13,7 +13,7 @@ export class AnswerComponent implements OnInit {
   public answerText!: string;
 
   @Input()
-  public state!: boolean;
+  public selected!: boolean;
 
   @Input()
   public isCorrect!: boolean;
@@ -26,20 +26,15 @@ export class AnswerComponent implements OnInit {
 
   constructor(private _changeDetectorRef: ChangeDetectorRef) {
     this.clickEmitter = new EventEmitter();
-
-    console.log('constructor answer')
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges answer')
   }
 
   public ngOnInit(): void {
-    console.log('ngOnInit answer')
   }
 
   clickHandler() {
-    console.log('clickHandler answer')
     this.clickEmitter.emit(this.answerText);
   }
 
