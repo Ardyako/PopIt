@@ -7,10 +7,10 @@ import { catchError } from 'rxjs/operators';
 @Injectable()
 export class DataService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   public getGameData(): Observable<Array<Game>> {
-    return this.http.get<Array<Game>>(`data`)
+    return this._http.get<Array<Game>>(`data`)
       .pipe(catchError(this.errorHandler));
   }
 
