@@ -1,5 +1,4 @@
-import { Game } from "./game";
-
+import { Game, IAnswer } from "./game";
 
 
 export class AnswerModel {
@@ -20,37 +19,59 @@ export class AnswerModel {
     this._gameState = value;
   }
 
-  public constructor(disabled: boolean) {
-    this._disabled = disabled;
+  private _i: number;
+  public get i(): number {
+    return this._i;
+  }
+  public set i(value: number) {
+    this._i = value;
   }
 
-  public checkAnswer(gameData: Array<Game>, answer: string, i: number): void {
-    for (let item of gameData[i].answers) {
-      if (item.answer == answer) {
-        if (item.selected) {
-          if (item.correctAnswer) {
-            item.selected = false;
-            item.isCorrect = true;
-            this.disabled = false
-            if (i == gameData.length - 1) {
-              this.gameState = 1;
-              this.disabled = false;
-            }
-          }
-          else {
-            item.selected = false;
-            item.isInCorrect = true;
-            this.gameState = 0;
-            this.disabled = false;
-          }
-        }
-        else {
-          item.selected = true;
-        }
-      }
-      else {
-        item.selected = false;
-      }
+  public questionsNumber!: number;
+  public answer!: IAnswer;
+
+  public constructor() {
+    this._i = 0;
+    this._disabled = true;
+  }
+
+  public checkAnswer(gameData: Array<Game>, answer: string): void {
+    this.questionsNumber = gameData.length;
+    for (this.answer of gameData[this.i].answers) {
+      this.answer.answer == answer ? this.checkCorrectAnswer() : this.answer.isSelected = false;
     }
+  }
+
+  public checkCorrectAnswer(): void {
+    this.answer.isSelected ? this.validatekAnswer() : this.answer.isSelected = true;
+  }
+
+  public validatekAnswer(): void {
+    if (this.answer.correctAnswer) {
+      this.validateButton();
+      this.checkLastQuestion();
+    }
+    else {
+      this.validateButton();
+      this.gameState = 0;
+    }
+  }
+
+  public validateButton(): void {
+    this.answer.isSelected = false;
+    this.answer.correctAnswer ? this.answer.isCorrect = true : this.answer.isInCorrect = true;;
+    this.disabled = false;
+  }
+
+  public checkLastQuestion() {
+    if (this.i == this.questionsNumber - 1) {
+      this.gameState = 1;
+      this.disabled = false;
+    }
+  }
+
+  public nextToggle() {
+    this.i++;
+    this.disabled = true;
   }
 }

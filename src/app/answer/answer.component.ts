@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { answer } from '../models/game';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-answer',
@@ -7,13 +7,13 @@ import { answer } from '../models/game';
   styleUrls: ['./answer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AnswerComponent implements OnInit {
+export class AnswerComponent {
 
   @Input()
   public answerText!: string;
 
   @Input()
-  public selected!: boolean;
+  public isSelected!: boolean;
 
   @Input()
   public isCorrect!: boolean;
@@ -26,12 +26,6 @@ export class AnswerComponent implements OnInit {
 
   constructor(private _changeDetectorRef: ChangeDetectorRef) {
     this.clickEmitter = new EventEmitter();
-  }
-
-  public ngOnChanges(changes: SimpleChanges): void {
-  }
-
-  public ngOnInit(): void {
   }
 
   clickHandler() {

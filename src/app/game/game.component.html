@@ -1,25 +1,50 @@
-<h1>Game</h1>
+<div
+    *ngIf="loaderService.isLoader | async"
+    class="loader"
+>
+    <mat-spinner class="loader__spinner"></mat-spinner>
+</div>
 
-<app-question [questionText]="gameData[i].question"></app-question>
+<mat-card class="game__card">
+    <mat-card-header class="game__card_header">
+        <mat-card-title>Game</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="game__card_content">{{gameData[answermodel.i].question}}</mat-card-content>
+</mat-card>
+
 <div class="game_grid">
     <app-answer
-        *ngFor="let value of gameData[i].answers"
-        [class.game_paused]="!disabled"
+        *ngFor="let value of gameData[answermodel.i].answers"
+        [class.game_paused]="!answermodel.disabled"
         [answerText]="value.answer"
-        [selected]="value.selected"
+        [isSelected]="value.isSelected"
         [isCorrect]="value.isCorrect"
         [isInCorrect]="value.isInCorrect"
         (clickEmitter)="clickHandler($event)"
     ></app-answer>
 </div>
 
-<div [ngSwitch]="gameState">
-    <h2 *ngSwitchCase="1">YOU WIN!</h2>
-    <h2 *ngSwitchCase="0">GAME OVER!</h2>
+<div [ngSwitch]="answermodel.gameState">
+    <mat-toolbar
+        class="game__footer"
+        color="warn"
+        *ngSwitchCase="0"
+    >
+        GAME OVER!
+    </mat-toolbar>
+    <mat-toolbar
+        class="game__footer"
+        color="primary"
+        *ngSwitchCase="1"
+    >
+        YOU WIN!
+    </mat-toolbar>
     <button
+        mat-raised-button
+        color="primary"
         *ngSwitchDefault
         (click)="clickNextHandler()"
-        [disabled]="disabled"
+        [disabled]="answermodel.disabled"
     >
         Next
     </button>

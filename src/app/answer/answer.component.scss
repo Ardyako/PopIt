@@ -1,15 +1,19 @@
 :host {
   display: inline-block;
 
-  .answer_isClicked {
-    background-color: orange;
-  }
+  .answer {
+    margin: 10px;
 
-  .answer_correct {
-    background-color: green;
-  }
+    &_isClicked {
+      background-color: orange;
+    }
 
-  .answer_incorrect {
-    background-color: red;
+    &_isCorrect {
+      background-color: green;
+    }
+
+    &_isInCorrect {
+      background-color: red;
+    }
   }
 }

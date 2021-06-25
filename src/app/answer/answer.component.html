@@ -1,7 +1,9 @@
 <button
-    [class.answer_isClicked]="selected"
-    [class.answer_correct]="isCorrect"
-    [class.answer_incorrect]="isInCorrect"
+    mat-raised-button
+    class="answer"
+    [class.answer_isClicked]="isSelected"
+    [class.answer_isCorrect]="isCorrect"
+    [class.answer_isInCorrect]="isInCorrect"
     (click)="clickHandler()"
 >
     {{answerText}}
