@@ -5,28 +5,28 @@
       "answers": [
         {
           "answer": "Q1Ansewer1!",
-          "correctAnswer": true,
+          "answerId": 11,
           "isSelected": false,
           "isCorrect": false,
           "isInCorrect": false
         },
         {
           "answer": "Q1Ansewer2!",
-          "correctAnswer": false,
+          "answerId": 12,
           "isSelected": false,
           "isCorrect": false,
           "isInCorrect": false
         },
         {
           "answer": "Q1Ansewer3!",
-          "correctAnswer": false,
+          "answerId": 13,
           "isSelected": false,
           "isCorrect": false,
           "isInCorrect": false
         },
         {
           "answer": "Q1Ansewer4!",
-          "correctAnswer": false,
+          "answerId": 14,
           "isSelected": false,
           "isCorrect": false,
           "isInCorrect": false
@@ -38,28 +38,28 @@
       "answers": [
         {
           "answer": "Q2Ansewer1!",
-          "correctAnswer": false,
+          "answerId": 21,
           "isSelected": false,
           "isCorrect": false,
           "isInCorrect": false
         },
         {
           "answer": "Q2Ansewer2!",
-          "correctAnswer": true,
+          "answerId": 22,
           "isSelected": false,
           "isCorrect": false,
           "isInCorrect": false
         },
         {
           "answer": "Q2Ansewer3!",
-          "correctAnswer": false,
+          "answerId": 23,
           "isSelected": false,
           "isCorrect": false,
           "isInCorrect": false
         },
         {
           "answer": "Q2Ansewer4!",
-          "correctAnswer": false,
+          "answerId": 24,
           "isSelected": false,
           "isCorrect": false,
           "isInCorrect": false
@@ -71,33 +71,47 @@
       "answers": [
         {
           "answer": "Q3Ansewer1!",
-          "correctAnswer": false,
+          "answerId": 31,
           "isSelected": false,
           "isCorrect": false,
           "isInCorrect": false
         },
         {
           "answer": "Q3Ansewer2!",
-          "correctAnswer": false,
+          "answerId": 32,
           "isSelected": false,
           "isCorrect": false,
           "isInCorrect": false
         },
         {
           "answer": "Q3Ansewer3!",
-          "correctAnswer": true,
+          "answerId": 33,
           "isSelected": false,
           "isCorrect": false,
           "isInCorrect": false
         },
         {
           "answer": "Q3Ansewer4!",
-          "correctAnswer": false,
+          "answerId": 34,
           "isSelected": false,
           "isCorrect": false,
           "isInCorrect": false
         }
       ]
     }
-  ]
+  ],
+  "answers": {
+    "11": true,
+    "12": false,
+    "13": false,
+    "14": false,
+    "21": false,
+    "22": true,
+    "23": false,
+    "24": false,
+    "31": false,
+    "32": false,
+    "33": true,
+    "34": false
+  }
 }

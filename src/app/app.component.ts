@@ -4,7 +4,6 @@ import { Observable, of } from 'rxjs';
 import { DataService } from './data-service/data.service';
 import { Game } from './models/game';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,7 +18,6 @@ export class AppComponent {
   }
 
   public constructor(dataService: DataService) {
-    console.log('app constructor')
     this._questions$ = dataService.getGameData();
   }
 }

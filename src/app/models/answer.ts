@@ -1,4 +1,9 @@
+import { DataService } from "../data-service/data.service";
 import { Game, IAnswer } from "./game";
+
+export interface IAnswersCheck {
+  [correct: number]: boolean;
+}
 
 
 export class AnswerModel {
@@ -29,15 +34,19 @@ export class AnswerModel {
 
   public questionsNumber!: number;
   public answer!: IAnswer;
+  public status!: boolean;
+  public currentId!: number
+  public answers!: IAnswer[];
 
-  public constructor() {
+  public constructor(private _dataService: DataService) {
     this._i = 0;
     this._disabled = true;
   }
 
   public checkAnswer(gameData: Array<Game>, answer: string): void {
     this.questionsNumber = gameData.length;
-    for (this.answer of gameData[this.i].answers) {
+    this.answers = gameData[this.i].answers;
+    for (this.answer of this.answers) {
       this.answer.answer == answer ? this.checkCorrectAnswer() : this.answer.isSelected = false;
     }
   }
@@ -47,20 +56,28 @@ export class AnswerModel {
   }
 
   public validatekAnswer(): void {
-    if (this.answer.correctAnswer) {
-      this.validateButton();
-      this.checkLastQuestion();
-    }
-    else {
-      this.validateButton();
-      this.gameState = 0;
-    }
+    this.currentId = this.answer.answerId;
+    this._dataService.getCorrectAnwer().subscribe(correct => {
+      this.status = correct[this.currentId];
+      if (this.status) {
+        this.validateButton();
+        this.checkLastQuestion();
+      }
+      else {
+        this.validateButton();
+        this.gameState = 0;
+      }
+    })
   }
 
   public validateButton(): void {
-    this.answer.isSelected = false;
-    this.answer.correctAnswer ? this.answer.isCorrect = true : this.answer.isInCorrect = true;;
-    this.disabled = false;
+    this.answers.map(answr => {
+      if (answr.answerId == this.currentId) {
+        answr.isSelected = false;
+        this.status ? answr.isCorrect = true : answr.isInCorrect = true;
+        this.disabled = false;
+      }
+    })
   }
 
   public checkLastQuestion() {

@@ -5,14 +5,20 @@
     <mat-spinner class="loader__spinner"></mat-spinner>
 </div>
 
-<mat-card class="game__card">
+<mat-card
+    class="game__card"
+    *ngIf="gameData != null"
+>
     <mat-card-header class="game__card_header">
         <mat-card-title>Game</mat-card-title>
     </mat-card-header>
     <mat-card-content class="game__card_content">{{gameData[answermodel.i].question}}</mat-card-content>
 </mat-card>
 
-<div class="game_grid">
+<div
+    class="game_grid"
+    *ngIf="gameData != null"
+>
     <app-answer
         *ngFor="let value of gameData[answermodel.i].answers"
         [class.game_paused]="!answermodel.disabled"

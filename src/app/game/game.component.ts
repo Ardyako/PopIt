@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Component, Input } from '@angular/core';
+import { DataService } from '../data-service/data.service';
 import { LoaderService } from '../loader-service/loader.service';
 import { AnswerModel } from '../models/answer';
 import { Game } from '../models/game';
@@ -13,15 +14,15 @@ import { Game } from '../models/game';
 export class GameComponent {
 
   @Input()
-  public gameData!: Array<Game>;
+  public gameData!: Array<Game> | null;
 
   private _answermodel!: AnswerModel;
   public get answermodel(): AnswerModel {
     return this._answermodel;
   }
 
-  public constructor(private _changeDetectorRef: ChangeDetectorRef, public loaderService: LoaderService) {
-    this._answermodel = new AnswerModel();
+  public constructor(private _changeDetectorRef: ChangeDetectorRef, public loaderService: LoaderService, private _dataService: DataService) {
+    this._answermodel = new AnswerModel(_dataService);
   }
 
   public clickNextHandler() {
@@ -29,6 +30,6 @@ export class GameComponent {
   }
 
   public clickHandler(answer: string): void {
-    this.answermodel.checkAnswer(this.gameData, answer);
+    this.answermodel.checkAnswer(this.gameData!, answer);
   }
 }

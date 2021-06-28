@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 
 @Component({
@@ -24,7 +24,7 @@ export class AnswerComponent {
   @Output()
   public clickEmitter: EventEmitter<string>;
 
-  constructor(private _changeDetectorRef: ChangeDetectorRef) {
+  constructor() {
     this.clickEmitter = new EventEmitter();
   }
 
