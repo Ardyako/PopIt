@@ -1,3 +1,4 @@
+import { take } from "rxjs/operators";
 import { DataService } from "../data-service/data.service";
 import { Game, IAnswer } from "./game";
 
@@ -57,7 +58,7 @@ export class AnswerModel {
 
   public validatekAnswer(): void {
     this.currentId = this.answer.answerId;
-    this._dataService.getCorrectAnwer().subscribe(correct => {
+    this._dataService.getCorrectAnwer().pipe(take(1)).subscribe(correct => {
       this.status = correct[this.currentId];
       if (this.status) {
         this.validateButton();
