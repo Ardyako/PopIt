@@ -13,8 +13,8 @@ export class DataService {
   constructor(private _http: HttpClient) { }
 
   public getGameData(): Observable<Array<Game>> {
-    return this._http.get<Array<Game>>("gameData");
-    //.pipe(catchError(this.errorHandler));
+    return this._http.get<Array<Game>>("gameData")
+      .pipe(catchError(this.errorHandler));
   }
 
 
