@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { DataService } from '../shared/data-service/data.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderModule } from './loader/loader.module';
+import { LoaderInterceptor } from './loader/loader-interceptor/loader.interceptor';
+import { UrlInterceptor } from './url-interceptor/url.interceptor';
 
 
 @NgModule({
@@ -20,6 +22,16 @@ import { LoaderModule } from './loader/loader.module';
   ],
   providers: [
     DataService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UrlInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true
+    }
   ],
   exports: [
     LoaderModule,
