@@ -1,0 +1,18 @@
+<h1>Title: {{film.title}}</h1>
+<h2>Category: {{film.category}}</h2>
+<h3>Rating: {{film.rating}}</h3>
+<p>Description: {{film.description}}</p>
+<button
+    *ngIf="!watched"
+    (click)=watchHandler(film)
+>
+    Add to watch list
+</button>
+<button
+    *ngIf="watched"
+    (click)=deletewatchHandler(film.id)
+>
+    Delete from watch list
+</button>
+<p></p>
+<button (click)="backHandler()">Back</button>

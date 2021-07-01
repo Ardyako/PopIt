@@ -1,117 +1,80 @@
 {
-  "gameData": [
+  "moviesDB": [
     {
-      "question": "Question #1?",
-      "answers": [
-        {
-          "answer": "Q1Ansewer1!",
-          "answerId": 11,
-          "isSelected": false,
-          "isCorrect": false,
-          "isInCorrect": false
-        },
-        {
-          "answer": "Q1Ansewer2!",
-          "answerId": 12,
-          "isSelected": false,
-          "isCorrect": false,
-          "isInCorrect": false
-        },
-        {
-          "answer": "Q1Ansewer3!",
-          "answerId": 13,
-          "isSelected": false,
-          "isCorrect": false,
-          "isInCorrect": false
-        },
-        {
-          "answer": "Q1Ansewer4!",
-          "answerId": 14,
-          "isSelected": false,
-          "isCorrect": false,
-          "isInCorrect": false
-        }
-      ]
+      "id": 1,
+      "title": "Film1",
+      "category": "Action",
+      "rating": "10"
     },
     {
-      "question": "Question #2?",
-      "answers": [
-        {
-          "answer": "Q2Ansewer1!",
-          "answerId": 21,
-          "isSelected": false,
-          "isCorrect": false,
-          "isInCorrect": false
-        },
-        {
-          "answer": "Q2Ansewer2!",
-          "answerId": 22,
-          "isSelected": false,
-          "isCorrect": false,
-          "isInCorrect": false
-        },
-        {
-          "answer": "Q2Ansewer3!",
-          "answerId": 23,
-          "isSelected": false,
-          "isCorrect": false,
-          "isInCorrect": false
-        },
-        {
-          "answer": "Q2Ansewer4!",
-          "answerId": 24,
-          "isSelected": false,
-          "isCorrect": false,
-          "isInCorrect": false
-        }
-      ]
+      "id": 2,
+      "title": "Film2",
+      "category": "Horror",
+      "rating": "8"
     },
     {
-      "question": "Question #3?",
-      "answers": [
-        {
-          "answer": "Q3Ansewer1!",
-          "answerId": 31,
-          "isSelected": false,
-          "isCorrect": false,
-          "isInCorrect": false
-        },
-        {
-          "answer": "Q3Ansewer2!",
-          "answerId": 32,
-          "isSelected": false,
-          "isCorrect": false,
-          "isInCorrect": false
-        },
-        {
-          "answer": "Q3Ansewer3!",
-          "answerId": 33,
-          "isSelected": false,
-          "isCorrect": false,
-          "isInCorrect": false
-        },
-        {
-          "answer": "Q3Ansewer4!",
-          "answerId": 34,
-          "isSelected": false,
-          "isCorrect": false,
-          "isInCorrect": false
-        }
-      ]
+      "id": 3,
+      "title": "Film3",
+      "category": "Comedy",
+      "rating": "7"
+    },
+    {
+      "id": 4,
+      "title": "Film4",
+      "category": "Horror",
+      "rating": "5"
+    },
+    {
+      "id": 5,
+      "title": "Film5",
+      "category": "Action",
+      "rating": "9"
     }
   ],
-  "answers": {
-    "11": true,
-    "12": false,
-    "13": false,
-    "14": false,
-    "21": false,
-    "22": true,
-    "23": false,
-    "24": false,
-    "31": false,
-    "32": false,
-    "33": true,
-    "34": false
-  }
+  "moviesDescriptions": [
+    {
+      "id": 1,
+      "title": "Film1",
+      "description": "Description of the film1",
+      "category": "HorrActionr",
+      "rating": "10"
+    },
+    {
+      "id": 2,
+      "title": "Film2",
+      "description": "Description of the film2",
+      "category": "Horror",
+      "rating": "8"
+    },
+    {
+      "id": 3,
+      "title": "Film3",
+      "description": "Description of the film3",
+      "category": "Comedy",
+      "rating": "7"
+    },
+    {
+      "id": 4,
+      "title": "Film4",
+      "description": "Description of the film4",
+      "category": "Horror",
+      "rating": "5"
+    },
+    {
+      "id": 5,
+      "title": "Film5",
+      "description": "Description of the film5",
+      "category": "Action",
+      "rating": "9"
+    }
+  ],
+  "moviesWatchList": [
+    {
+      "id": 3,
+      "title": "Film3",
+      "description": "Description of the film3",
+      "category": "Comedy",
+      "rating": "7"
+    }
+  ]
 }
