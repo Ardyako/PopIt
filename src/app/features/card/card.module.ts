@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CardRoutingModule, CARD_ROUTING_COMPONENTS } from './card-routing.module';
+import { CardResolverResolver } from './card-resolver/card-resolver.resolver';
 
 
 @NgModule({
@@ -11,6 +12,9 @@ import { CardRoutingModule, CARD_ROUTING_COMPONENTS } from './card-routing.modul
   imports: [
     CommonModule,
     CardRoutingModule
+  ],
+  providers: [
+    CardResolverResolver,
   ]
 })
 export class CardModule { }

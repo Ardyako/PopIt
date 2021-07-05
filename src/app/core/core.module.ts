@@ -8,6 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderModule } from './loader/loader.module';
 import { LoaderInterceptor } from './loader/loader-interceptor/loader.interceptor';
 import { UrlInterceptor } from './url-interceptor/url.interceptor';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { UrlInterceptor } from './url-interceptor/url.interceptor';
     CoreRoutingModule,
     RouterModule,
     HttpClientModule,
-    LoaderModule
+    LoaderModule,
+    AuthModule,
   ],
   providers: [
     DataService,

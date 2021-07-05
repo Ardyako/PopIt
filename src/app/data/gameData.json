@@ -70,11 +70,11 @@
   ],
   "moviesWatchList": [
     {
-      "id": 3,
-      "title": "Film3",
-      "description": "Description of the film3",
-      "category": "Comedy",
-      "rating": "7"
+      "id": 5,
+      "title": "Film5",
+      "description": "Description of the film5",
+      "category": "Action",
+      "rating": "9"
     }
   ]
 }

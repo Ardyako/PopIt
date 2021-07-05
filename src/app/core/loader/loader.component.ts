@@ -13,6 +13,7 @@ export class LoaderComponent {
   public get loaderService(): LoaderService {
     return this._loaderService;
   }
+
   constructor(private _loaderService: LoaderService) { }
 
 }

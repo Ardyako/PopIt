@@ -1,6 +1,8 @@
 :host {
   display: block;
-  .border {
+  .dashboard-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     border: solid black 2px;
   }
 }

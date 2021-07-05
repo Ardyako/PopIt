@@ -1,6 +1,20 @@
-<div class="border">
-    <p>Title: {{film?.title}}</p>
-    <p>Category: {{film?.category}}</p>
-    <p>Rating: {{film?.rating}}</p>
-    <button (click)=detailHandler(film!.id)>See details</button>
+<div class="dashboard-card">
+    <div>
+        <h2>Title: {{film?.title}}</h2>
+        <h3>Category: {{film?.category}}</h3>
+        <p>Rating: {{film?.rating}}</p>
+        <button
+            *ngIf="!(watch$ | async)"
+            (click)="addWatchHandler()"
+        >
+            Add to watch list
+        </button>
+        <button
+            *ngIf="(watch$ | async)"
+            (click)="deleteWatchHandler()"
+        >
+            Delete from watch list
+        </button>
+    </div>
+    <button (click)=detailHandler(film!.id)>Details</button>
 </div>

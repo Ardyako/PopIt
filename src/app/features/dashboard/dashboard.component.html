@@ -1,6 +1,19 @@
 <h1>MoviesBase!</h1>
-
+<button (click)="sortRatingHandler()">Sort rating {{sortRating}}</button>
+<select (change)="selectCategoryHandler($event)">
+    <option>All</option>
+    <option>Action</option>
+    <option>Comedy</option>
+    <option>Horror</option>
+</select>
 <app-dashboard-card
-    *ngFor="let film of (films$ | async)"
+    class="card-margin"
+    *ngFor="let film of (films$ | async) | sortCategory: sortCategory | sortRating: sortRating"
     [film]="film"
 ></app-dashboard-card>
+<button
+    class="logOff-button"
+    (click)="logOffHandler()"
+>
+    Log Off
+</button>

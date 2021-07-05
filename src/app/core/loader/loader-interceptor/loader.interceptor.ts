@@ -20,9 +20,7 @@ export class LoaderInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       finalize(
         () => {
-          setTimeout(() => {
-            this.loaderService.isLoader.next(false);
-          }, 500)
+          this.loaderService.isLoader.next(false);
         }
       )
     );

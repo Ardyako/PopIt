@@ -1,18 +1,24 @@
-<h1>Title: {{film.title}}</h1>
-<h2>Category: {{film.category}}</h2>
-<h3>Rating: {{film.rating}}</h3>
-<p>Description: {{film.description}}</p>
-<button
-    *ngIf="!watched"
-    (click)=watchHandler(film)
->
-    Add to watch list
-</button>
-<button
-    *ngIf="watched"
-    (click)=deletewatchHandler(film.id)
->
-    Delete from watch list
-</button>
-<p></p>
-<button (click)="backHandler()">Back</button>
+    <h1>Title: {{(film$ | async)!.title}}</h1>
+    <h2>Category: {{(film$ | async)!.category}}</h2>
+    <h3>Rating: {{(film$ | async)!.rating}}</h3>
+    <h4>
+        Description: {{(film$ | async)!.description}}
+    </h4>
+    <ng-container *ngIf="(film$ | async) as film">
+        <button
+            *ngIf="!(watchStatus$ | async)"
+            (click)=watchHandler(film)
+        >
+            Add to watch list
+        </button>
+    </ng-container>
+    <ng-container *ngIf="(film$ | async) as film">
+        <button
+            *ngIf="(watchStatus$ | async)"
+            (click)=deletewatchHandler(film.id)
+        >
+            Delete from watch list
+        </button>
+    </ng-container>
+    <p></p>
+    <button (click)="backHandler()">Back</button>

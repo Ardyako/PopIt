@@ -11,7 +11,7 @@ export class DataService {
 
   public getMoviesData(): Observable<Array<IFilm>> {
     return this._http.get<Array<IFilm>>("moviesDB")
-      .pipe(catchError(this.errorHandler));
+      .pipe(catchError(this.errorHandler)) ?? null;
   }
 
   public getDescription(id: number): Observable<IFilm> {
@@ -29,8 +29,8 @@ export class DataService {
       .pipe(catchError(this.errorHandler));
   }
 
-  public getWatchList(id: number): Observable<IFilm> {
-    return this._http.get<IFilm>(`moviesWatchList/${id}`);
+  public getWatchList(id: number): Observable<boolean> {
+    return this._http.get<Array<IFilm>>(`moviesWatchList?id=${id}`).pipe(map(data => data.length == 0 ? false : true));
   }
 
   public errorHandler(error: HttpErrorResponse) {

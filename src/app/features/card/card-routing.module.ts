@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CardResolverResolver } from './card-resolver/card-resolver.resolver';
 import { CardComponent } from './card.component';
 
 const routes: Routes = [
   {
-    path: '', component: CardComponent
+    path: '', component: CardComponent,
+    resolve: {cardDetails: CardResolverResolver}
   }
 ];
 

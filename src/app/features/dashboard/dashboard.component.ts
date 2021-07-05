@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/core/auth/auth-service/auth.service';
+import { LOGIN_PATH } from 'src/app/core/login';
 import { DataService } from 'src/app/shared/data-service/data.service';
 import { IFilm } from './models/dashboard';
 
@@ -18,15 +20,31 @@ export class DashboardComponent implements OnInit {
     return this._films$;
   }
 
+  public sortRating: string = "ascending";
+  public sortCategory: string = "All";
+
+
   constructor(
     private _dataService: DataService,
+    private _authService: AuthService,
     private _router: Router,
-    private _route: ActivatedRoute
-  ) {
-  }
+  ) { }
 
   ngOnInit(): void {
     this._films$ = this._dataService.getMoviesData();
+  }
+
+  public sortRatingHandler(): void {
+    this.sortRating == "ascending" ? this.sortRating = 'descending' : this.sortRating = 'ascending';
+  }
+
+  public selectCategoryHandler(value: any): void {
+    this.sortCategory = value.target.value;
+  }
+
+  public logOffHandler(): void {
+    this._authService.logged = false;
+    this._router.navigate([LOGIN_PATH]);
   }
 
 }
