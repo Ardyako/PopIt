@@ -1,19 +1,45 @@
-<h1>MoviesBase!</h1>
-<button (click)="sortRatingHandler()">Sort rating {{sortRating}}</button>
-<select (change)="selectCategoryHandler($event)">
-    <option>All</option>
-    <option>Action</option>
-    <option>Comedy</option>
-    <option>Horror</option>
-</select>
-<app-dashboard-card
-    class="card-margin"
-    *ngFor="let film of (films$ | async) | sortCategory: sortCategory | sortRating: sortRating"
-    [film]="film"
-></app-dashboard-card>
-<button
-    class="logOff-button"
-    (click)="logOffHandler()"
->
-    Log Off
-</button>
+<mat-card class="dashboard">
+
+    <mat-card-title class="dashboard__title">MoviesBase!</mat-card-title>
+    <div>
+        <button
+            mat-raised-button
+            class="dashboard__sort-rating-button"
+            (click)="sortRatingHandler()"
+        >
+            Sort rating {{sortRating}}
+        </button>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Sort by category</mat-label>
+            <mat-select
+                [(value)]="selected"
+                (selectionChange)="selectCategoryHandler($event)"
+            >
+                <mat-option value="All">All</mat-option>
+                <mat-option
+                    *ngFor="let category of (films$ | async) | unique: 'category'"
+                    [value]="category"
+                >
+                    {{category}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button
+            mat-raised-button
+            color='warn'
+            class="dashboard__logOff-button"
+            (click)="logOffHandler()"
+        >
+            Log Off
+        </button>
+    </div>
+
+    <app-dashboard-card
+        class="dashboard__card-margin"
+        *ngFor="let film of (films$ | async) | sortCategory: sortCategory | sortRating: sortRating"
+        [film]="film"
+    ></app-dashboard-card>
+
+</mat-card>

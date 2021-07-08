@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
 
   public sortRating: string = "ascending";
   public sortCategory: string = "All";
-
+  public selected: string ="All";
 
   constructor(
     private _dataService: DataService,
@@ -39,7 +39,9 @@ export class DashboardComponent implements OnInit {
   }
 
   public selectCategoryHandler(value: any): void {
-    this.sortCategory = value.target.value;
+    debugger
+    this.sortCategory = value.value;
+    debugger
   }
 
   public logOffHandler(): void {

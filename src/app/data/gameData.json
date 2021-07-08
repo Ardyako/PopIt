@@ -75,6 +75,12 @@
       "description": "Description of the film5",
       "category": "Action",
       "rating": "9"
+    },
+    {
+      "id": 3,
+      "title": "Film3",
+      "category": "Comedy",
+      "rating": "7"
     }
   ]
 }

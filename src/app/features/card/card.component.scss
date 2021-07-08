@@ -1,6 +1,13 @@
 :host {
   display: block;
-  text-align: center;
-  margin: 10%;
-  background-color: blanchedalmond;
+  .card {
+    margin: 10% 30%;
+    background-color:aqua;
+  }
+  .card-fotter {
+    text-align: end;
+  }
+  .card__back-button {
+    margin: 5px;
+  }
 }

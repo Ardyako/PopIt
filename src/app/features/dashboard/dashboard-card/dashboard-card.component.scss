@@ -2,7 +2,15 @@
   display: block;
   .dashboard-card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    border: solid black 2px;
+    grid-template-columns: auto 1fr 1fr;
+    background-color:aqua;
+  }
+  .dashboard-card__watch-list-button {
+    margin-left: 10px;
+    align-self: end;
+  }
+  .dashboard-card__detail-button {
+    text-align: right;
+    align-self: center;
   }
 }

@@ -4,6 +4,10 @@ import { CommonModule } from '@angular/common';
 import { CardRoutingModule, CARD_ROUTING_COMPONENTS } from './card-routing.module';
 import { CardResolverResolver } from './card-resolver/card-resolver.resolver';
 
+import { MatCardModule } from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
@@ -11,7 +15,9 @@ import { CardResolverResolver } from './card-resolver/card-resolver.resolver';
   ],
   imports: [
     CommonModule,
-    CardRoutingModule
+    CardRoutingModule,
+    MatCardModule,
+    MatButtonModule,
   ],
   providers: [
     CardResolverResolver,
