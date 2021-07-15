@@ -14,7 +14,7 @@
             <mat-label>Sort by category</mat-label>
             <mat-select
                 [(value)]="selected"
-                (selectionChange)="selectCategoryHandler($event)"
+                (selectionChange)="selectCategoryHandler($event.value)"
             >
                 <mat-option value="All">All</mat-option>
                 <mat-option

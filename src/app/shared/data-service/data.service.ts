@@ -10,7 +10,7 @@ export class DataService {
   constructor(private _http: HttpClient) { }
 
   public getMoviesData(): Observable<Array<IFilm>> {
-    return this._http.get<Array<IFilm>>("moviesDB")
+    return this._http.get<Array<IFilm>>("moviesDescriptions")
       .pipe(catchError(this.errorHandler)) ?? null;
   }
 
@@ -21,6 +21,11 @@ export class DataService {
 
   public addFilmToWatchList(film: IFilm) {
     return this._http.post('moviesWatchList', film)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  public updateFilmData(film: IFilm, id: number) {
+    return this._http.put(`moviesDescriptions/${id}`, film)
       .pipe(catchError(this.errorHandler));
   }
 

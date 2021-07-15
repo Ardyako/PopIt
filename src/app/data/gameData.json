@@ -1,42 +1,10 @@
 {
-  "moviesDB": [
-    {
-      "id": 1,
-      "title": "Film1",
-      "category": "Action",
-      "rating": "10"
-    },
-    {
-      "id": 2,
-      "title": "Film2",
-      "category": "Horror",
-      "rating": "8"
-    },
-    {
-      "id": 3,
-      "title": "Film3",
-      "category": "Comedy",
-      "rating": "7"
-    },
-    {
-      "id": 4,
-      "title": "Film4",
-      "category": "Horror",
-      "rating": "5"
-    },
-    {
-      "id": 5,
-      "title": "Film5",
-      "category": "Action",
-      "rating": "9"
-    }
-  ],
   "moviesDescriptions": [
     {
       "id": 1,
       "title": "Film1",
       "description": "Description of the film1",
-      "category": "HorrActionr",
+      "category": "Action",
       "rating": "10"
     },
     {
@@ -47,18 +15,18 @@
       "rating": "8"
     },
     {
-      "id": 3,
       "title": "Film3",
-      "description": "Description of the film3",
       "category": "Comedy",
-      "rating": "7"
+      "rating": "1",
+      "description": "Description of the film3",
+      "id": 3
     },
     {
-      "id": 4,
-      "title": "Film4",
-      "description": "Description of the film4",
-      "category": "Horror",
-      "rating": "5"
+      "title": "Film6",
+      "category": "Action",
+      "rating": "2",
+      "description": "Description of the film6",
+      "id": 4
     },
     {
       "id": 5,
@@ -66,6 +34,27 @@
       "description": "Description of the film5",
       "category": "Action",
       "rating": "9"
+    },
+    {
+      "title": "Film4",
+      "category": "Horror",
+      "rating": "5",
+      "description": "Description of the film4",
+      "id": 6
+    },
+    {
+      "title": "Film7",
+      "category": "Horror",
+      "rating": "5",
+      "description": "Description of the film7",
+      "id": 7
+    },
+    {
+      "title": "Film8",
+      "category": "Horror",
+      "rating": "5",
+      "description": "Description of the film8",
+      "id": 8
     }
   ],
   "moviesWatchList": [
@@ -77,10 +66,18 @@
       "rating": "9"
     },
     {
-      "id": 3,
-      "title": "Film3",
-      "category": "Comedy",
-      "rating": "7"
+      "title": "Film444",
+      "category": "Horror",
+      "rating": "5",
+      "description": "Description of the film4",
+      "id": 8
+    },
+    {
+      "title": "Film6",
+      "category": "Action",
+      "rating": "2",
+      "description": "Description of the film6",
+      "id": 4
     }
   ]
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/auth/auth-guard/auth.guard';
 import { CARD_PATH } from './features/card';
+import { CARD_EDITOR_PATH } from './features/card-editor';
 import { DASHBOARD_PATH } from './features/dashboard';
 
 const routes: Routes = [
@@ -10,6 +11,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./features/card/card.module')
       .then(m => m.CardModule)
+  },
+  {
+    path: `${CARD_EDITOR_PATH}/:id`,
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./features/card-editor/card-editor.module')
+      .then(m => m.CardEditorModule)
   },
   {
     path: DASHBOARD_PATH,

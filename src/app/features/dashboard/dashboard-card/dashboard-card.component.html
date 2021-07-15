@@ -21,14 +21,22 @@
             Delete from watch list
         </button>
     </div>
-    <div class="dashboard-card__detail-button">
+    <div class="dashboard-card__detail-buttons-field">
         <button
-
             mat-fab
             color="primary"
+            class="dashboard-card__detail-button-detail"
             (click)="detailHandler(film!.id)"
         >
             Details
+        </button>
+        <button
+            mat-fab
+            color="primary"
+            class="dashboard-card__detail-button-edit"
+            (click)="editHandler(film!.id)"
+        >
+            EDIT
         </button>
     </div>
 </mat-card>

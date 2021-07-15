@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CardRoutingModule, CARD_ROUTING_COMPONENTS } from './card-routing.module';
-import { CardResolverResolver } from './card-resolver/card-resolver.resolver';
+import { CardEditorRoutingModule, CARD_ROUTING_COMPONENTS } from './card-editor-routing.module';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
@@ -14,11 +14,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   imports: [
     CommonModule,
-    CardRoutingModule,
+    CardEditorRoutingModule,
     SharedModule,
-  ],
-  providers: [
-    CardResolverResolver,
+    ReactiveFormsModule
   ]
 })
-export class CardModule { }
+export class CardEditorModule { }

@@ -3,14 +3,20 @@
   .dashboard-card {
     display: grid;
     grid-template-columns: auto 1fr 1fr;
-    background-color:aqua;
+    background-color: aqua;
   }
   .dashboard-card__watch-list-button {
     margin-left: 10px;
     align-self: end;
   }
-  .dashboard-card__detail-button {
+  .dashboard-card__detail-buttons-field {
     text-align: right;
     align-self: center;
+  }
+  .dashboard-card__detail-button-detail {
+    margin: 5px;
+  }
+  .dashboard-card__detail-button-edit {
+    margin: 5px;
   }
 }

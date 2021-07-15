@@ -1,12 +1,12 @@
 <mat-card class="card">
-    <mat-card-title>Title: {{(film$ | async)!.title}}</mat-card-title>
+    <mat-card-title *ngIf="(film$ | async)!.title != null">Title: {{(film$ | async)!.title}}</mat-card-title>
     <mat-card-subtitle>Category: {{(film$ | async)!.category}}</mat-card-subtitle>
     <mat-card-subtitle>Rating: {{(film$ | async)!.rating}}</mat-card-subtitle>
     <mat-card-content>{{(film$ | async)!.description}}</mat-card-content>
     <ng-container *ngIf="(film$ | async) as film">
         <button
             mat-raised-button
-            *ngIf="!(watchStatus$ | async)"
+            *ngIf="!watchStatus"
             (click)=watchHandler(film)
         >
             Add to watch list
@@ -16,7 +16,7 @@
         <button
             mat-raised-button
             color="accent"
-            *ngIf="(watchStatus$ | async)"
+            *ngIf="watchStatus"
             (click)=deletewatchHandler(film.id)
         >
             Delete from watch list

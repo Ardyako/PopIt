@@ -3,9 +3,7 @@ import { CanActivate, Router } from '@angular/router';
 import { LOGIN_PATH } from '../../login';
 import { AuthService } from '../auth-service/auth.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthGuard implements CanActivate {
 
   constructor(private _authService: AuthService, private _router: Router) { }
@@ -15,7 +13,6 @@ export class AuthGuard implements CanActivate {
       return true;
     }
     else {
-      alert('Please, loggin!');
       this._router.navigate([LOGIN_PATH]);
       return false;
     }

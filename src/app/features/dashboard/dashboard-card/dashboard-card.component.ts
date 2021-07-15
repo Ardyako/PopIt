@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { DataService } from 'src/app/shared/data-service/data.service';
 import { CARD_PATH } from '../../card';
+import { CARD_EDITOR_PATH } from '../../card-editor';
 import { IFilm } from '../models/dashboard';
 
 @Component({
@@ -33,15 +34,17 @@ export class DashboardCardComponent implements OnInit {
     this._router.navigate([CARD_PATH, this.film!.id]);
   }
 
+  public editHandler(id: number | null): void {
+    this._router.navigate([CARD_EDITOR_PATH, this.film!.id]);
+  }
+
   public addWatchHandler(): void {
     this._dataService.addFilmToWatchList(this.film).pipe(take(1)).subscribe();
-    //this.watch$ = of(true);
     this.watch$ = this._dataService.getWatchList(this.film.id);
   }
 
   public deleteWatchHandler(): void {
     this._dataService.deleteFilmFromWatchList(this.film.id).pipe(take(1)).subscribe();
-    //this.watch$ = of(false);
     this.watch$ = this._dataService.getWatchList(this.film.id);
   }
 }

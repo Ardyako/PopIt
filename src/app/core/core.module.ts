@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { RouterModule } from '@angular/router';
-import { DataService } from '../shared/data-service/data.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderModule } from './loader/loader.module';
 import { LoaderInterceptor } from './loader/loader-interceptor/loader.interceptor';
 import { UrlInterceptor } from './url-interceptor/url.interceptor';
 import { AuthModule } from './auth/auth.module';
+import { UpdatePasswordRoutingModule } from './update-password/update-password-routing.module';
 
 
 @NgModule({
@@ -21,9 +21,9 @@ import { AuthModule } from './auth/auth.module';
     HttpClientModule,
     LoaderModule,
     AuthModule,
+    UpdatePasswordRoutingModule,
   ],
   providers: [
-    DataService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: UrlInterceptor,

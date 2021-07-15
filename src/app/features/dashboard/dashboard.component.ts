@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/core/auth/auth-service/auth.service';
 import { LOGIN_PATH } from 'src/app/core/login';
 import { DataService } from 'src/app/shared/data-service/data.service';
+import { SortCategoryType, SortRatingType } from './dashboard.model';
 import { IFilm } from './models/dashboard';
 
 @Component({
@@ -20,9 +21,9 @@ export class DashboardComponent implements OnInit {
     return this._films$;
   }
 
-  public sortRating: string = "ascending";
-  public sortCategory: string = "All";
-  public selected: string ="All";
+  public sortRating: SortRatingType = "ascending";
+  public sortCategory: SortCategoryType = "All";
+  public selected: string = "All";
 
   constructor(
     private _dataService: DataService,
@@ -38,10 +39,9 @@ export class DashboardComponent implements OnInit {
     this.sortRating == "ascending" ? this.sortRating = 'descending' : this.sortRating = 'ascending';
   }
 
-  public selectCategoryHandler(value: any): void {
-    debugger
-    this.sortCategory = value.value;
-    debugger
+
+  public selectCategoryHandler(value: SortCategoryType): void {
+    this.sortCategory = value;
   }
 
   public logOffHandler(): void {

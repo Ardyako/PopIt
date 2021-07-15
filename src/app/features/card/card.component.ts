@@ -15,36 +15,37 @@ import { IFilm } from '../dashboard/models/dashboard';
 })
 export class CardComponent implements OnInit {
 
-  private _film$!: Observable<IFilm>;
-  public get film$(): Observable<IFilm> {
+  private _film$!: Observable<IFilm> | null;
+  public get film$(): Observable<IFilm> | null {
     return this._film$;
   }
 
-  private _watchStatus$!: Observable<boolean>;
-  public get watchStatus$(): Observable<boolean> {
-    return this._watchStatus$;
+  private _watchStatus: boolean;
+  public get watchStatus(): boolean {
+    return this._watchStatus;
   }
 
   constructor(
     private _router: Router,
     private _route: ActivatedRoute,
     private _dataService: DataService,
-  ) { }
+  ) {
+    this._watchStatus = this._route.snapshot.data.cardDetails;
+  }
 
   ngOnInit(): void {
     let id = parseInt(this._route.snapshot.paramMap.get('id')!);
     this._film$ = this._dataService.getDescription(id);
-    this._watchStatus$ = this._route.snapshot.data.cardDetails;
   }
 
   public watchHandler(film: IFilm): void {
     this._dataService.addFilmToWatchList(film).pipe(take(1)).subscribe();
-    this._watchStatus$ = of(true);
+    this._watchStatus = true;
   }
 
   public deletewatchHandler(id: number): void {
     this._dataService.deleteFilmFromWatchList(id).pipe(take(1)).subscribe();
-    this._watchStatus$ = of(false);
+    this._watchStatus = false;
   }
 
   public backHandler(): void {
