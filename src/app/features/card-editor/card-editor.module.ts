@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { CardEditorRoutingModule, CARD_ROUTING_COMPONENTS } from './card-editor-routing.module';
-
-import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
-
 
 
 @NgModule({
@@ -16,7 +14,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     CardEditorRoutingModule,
     SharedModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+  ],
 })
 export class CardEditorModule { }

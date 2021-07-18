@@ -1,7 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, take } from 'rxjs/operators';
+
 import { IFilm } from 'src/app/features/dashboard/models/dashboard';
 
 @Injectable()
@@ -10,7 +12,7 @@ export class DataService {
   constructor(private _http: HttpClient) { }
 
   public getMoviesData(): Observable<Array<IFilm>> {
-    return this._http.get<Array<IFilm>>("moviesDescriptions")
+    return this._http.get<Array<IFilm>>('moviesDescriptions')
       .pipe(catchError(this.errorHandler)) ?? null;
   }
 
@@ -35,11 +37,11 @@ export class DataService {
   }
 
   public getWatchList(id: number): Observable<boolean> {
-    return this._http.get<Array<IFilm>>(`moviesWatchList?id=${id}`).pipe(map(data => data.length == 0 ? false : true));
+    return this._http.get<Array<IFilm>>(`moviesWatchList?id=${id}`).pipe(map(data => data.length != 0));
   }
 
   public errorHandler(error: HttpErrorResponse) {
     console.log(error.message);
-    return throwError(error.message || "Server Error")
+    return throwError(error.message || 'Server Error');
   }
 }

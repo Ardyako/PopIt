@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { LoaderComponent } from './loader.component';
+
 import { LoaderService } from './loader-service/loader.service';
 
 
 @NgModule({
   declarations: [
-    LoaderComponent
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,7 @@ import { LoaderService } from './loader-service/loader.service';
     LoaderService,
   ],
   exports: [
-    LoaderComponent
-  ]
+    LoaderComponent,
+  ],
 })
 export class LoaderModule { }

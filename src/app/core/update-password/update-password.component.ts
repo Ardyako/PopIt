@@ -1,9 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LOGIN_PATH } from '../login';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { UpdatePasswordValidator } from './update-password.validator';
+
 import { AuthService } from '../auth/auth-service/auth.service';
+
+import { LOGIN_PATH } from '../login';
+import { UpdatePasswordValidator } from './update-password.validator';
+
 
 @Component({
   selector: 'app-update-password',
@@ -35,7 +38,7 @@ export class UpdatePasswordComponent implements OnInit {
 
   public updatePasswordForm = this._fb.group({
     password: ['', [Validators.required]],
-    confirmPassword: ['', [Validators.required]]
+    confirmPassword: ['', [Validators.required]],
   }, { validator: UpdatePasswordValidator });
 
   public updateHandler(): void {

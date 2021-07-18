@@ -8,13 +8,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
-    UPDATE_PASSWORD_COMPONENT
+    UPDATE_PASSWORD_COMPONENT,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     UpdatePasswordRoutingModule,
     SharedModule,
-  ]
+  ],
 })
 export class UpdatePasswordModule { }

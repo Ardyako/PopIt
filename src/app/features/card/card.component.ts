@@ -1,8 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { Observable, of } from 'rxjs';
 import { take } from 'rxjs/operators';
+
 import { DataService } from 'src/app/shared/data-service/data.service';
+
 import { DASHBOARD_PATH } from '../dashboard';
 import { IFilm } from '../dashboard/models/dashboard';
 
@@ -34,17 +37,19 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let id = parseInt(this._route.snapshot.paramMap.get('id')!);
+    const id = parseInt(this._route.snapshot.paramMap.get('id')!);
     this._film$ = this._dataService.getDescription(id);
   }
 
   public watchHandler(film: IFilm): void {
-    this._dataService.addFilmToWatchList(film).pipe(take(1)).subscribe();
+    this._dataService.addFilmToWatchList(film).pipe(take(1))
+      .subscribe();
     this._watchStatus = true;
   }
 
   public deletewatchHandler(id: number): void {
-    this._dataService.deleteFilmFromWatchList(id).pipe(take(1)).subscribe();
+    this._dataService.deleteFilmFromWatchList(id).pipe(take(1))
+      .subscribe();
     this._watchStatus = false;
   }
 

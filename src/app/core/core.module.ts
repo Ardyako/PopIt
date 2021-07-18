@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { CoreRoutingModule } from './core-routing.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { CoreRoutingModule } from './core-routing.module';
 import { LoaderModule } from './loader/loader.module';
-import { LoaderInterceptor } from './loader/loader-interceptor/loader.interceptor';
-import { UrlInterceptor } from './url-interceptor/url.interceptor';
 import { AuthModule } from './auth/auth.module';
 import { UpdatePasswordRoutingModule } from './update-password/update-password-routing.module';
+
+import { UrlInterceptor } from './url-interceptor/url.interceptor';
+import { LoaderInterceptor } from './loader/loader-interceptor/loader.interceptor';
 
 
 @NgModule({
@@ -27,16 +28,16 @@ import { UpdatePasswordRoutingModule } from './update-password/update-password-r
     {
       provide: HTTP_INTERCEPTORS,
       useClass: UrlInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
   exports: [
     LoaderModule,
-  ]
+  ],
 })
 export class CoreModule { }

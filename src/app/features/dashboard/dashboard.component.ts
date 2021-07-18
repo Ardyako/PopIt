@@ -1,9 +1,13 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { Observable } from 'rxjs';
+
 import { AuthService } from 'src/app/core/auth/auth-service/auth.service';
-import { LOGIN_PATH } from 'src/app/core/login';
 import { DataService } from 'src/app/shared/data-service/data.service';
+
+import { LOGIN_PATH } from 'src/app/core/login';
+
 import { SortCategoryType, SortRatingType } from './dashboard.model';
 import { IFilm } from './models/dashboard';
 
@@ -21,9 +25,9 @@ export class DashboardComponent implements OnInit {
     return this._films$;
   }
 
-  public sortRating: SortRatingType = "ascending";
-  public sortCategory: SortCategoryType = "All";
-  public selected: string = "All";
+  public sortRating: SortRatingType = 'ascending';
+  public sortCategory: SortCategoryType = 'All';
+  public selected = 'All';
 
   constructor(
     private _dataService: DataService,
@@ -36,7 +40,7 @@ export class DashboardComponent implements OnInit {
   }
 
   public sortRatingHandler(): void {
-    this.sortRating == "ascending" ? this.sortRating = 'descending' : this.sortRating = 'ascending';
+    this.sortRating == 'ascending' ? this.sortRating = 'descending' : this.sortRating = 'ascending';
   }
 
 

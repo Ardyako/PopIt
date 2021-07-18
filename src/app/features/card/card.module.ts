@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CardRoutingModule, CARD_ROUTING_COMPONENTS } from './card-routing.module';
-import { CardResolverResolver } from './card-resolver/card-resolver.resolver';
-
 import { SharedModule } from 'src/app/shared/shared.module';
 
+import { CardResolverResolver } from './card-resolver/card-resolver.resolver';
 
 
 @NgModule({
@@ -19,6 +18,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   providers: [
     CardResolverResolver,
-  ]
+  ],
 })
 export class CardModule { }

@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { UpdatePasswordComponent } from './update-password.component';
 
 const routes: Routes = [
   {
-    path: '', component: UpdatePasswordComponent
-  }
+    path: '', component: UpdatePasswordComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class UpdatePasswordRoutingModule { }
 
-export const UPDATE_PASSWORD_COMPONENT = [UpdatePasswordComponent]
+export const UPDATE_PASSWORD_COMPONENT = [UpdatePasswordComponent];
 

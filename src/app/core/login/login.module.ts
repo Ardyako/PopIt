@@ -15,6 +15,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ReactiveFormsModule,
     LoginRoutingModule,
     SharedModule,
-  ]
+  ],
 })
 export class LoginModule { }

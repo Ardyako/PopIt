@@ -1,12 +1,16 @@
 :host {
   display: block;
+
   .card {
     margin: 10% 30%;
-    background-color:aqua;
+
+    background-color: aqua;
   }
+
   .card-fotter {
     text-align: end;
   }
+
   .card__back-button {
     margin: 5px;
   }
