@@ -15,7 +15,7 @@
     "htmlhint:check-custom-rules": "htmlhint -R ./htmlhint/rules/ -r custom-alt-require,custom-attribute-wrapping,custom-id-class-value=bem",
     "htmlhint:check": "npm run htmlhint:check-custom-rules -- src/app && npm run htmlhint:check-rules -- src/app",
     "stylelint:check": "stylelint src/**/**/*.scss",
-    "pipeline:light": "htmlhint:check && stylelint:check && eslint:check && npm run build",
+    "pipeline:light": "npm run htmlhint:check && npm run stylelint:check && npm run eslint:check && npm run build",
     "pipeline": "npm ci && npm run pipeline:light"
   },
   "private": true,
