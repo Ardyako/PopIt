@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../auth/auth-service/auth.service';
 
-import { DASHBOARD_PATH } from 'src/app/features/dashboard';
+import { DASHBOARD_PATH } from '@mf-app/features/dashboard';
 
 import { UPDATE_PASSWORD_PATH } from '../update-password';
 
@@ -16,7 +16,10 @@ import { UPDATE_PASSWORD_PATH } from '../update-password';
 })
 export class LoginComponent {
 
-  public loginForm!: FormBuilder;
+  public loginForm = this._fb.group({
+    login: ['', [Validators.required]],
+    password: ['', [Validators.required]],
+  });
 
   public constructor(
     private _router: Router,
@@ -37,10 +40,6 @@ export class LoginComponent {
     return this.loginForm.get('password');
   }
 
-  this.loginForm = this._fb.group({
-    login: ['', [Validators.required]],
-    password: ['', [Validators.required]],
-  });
 
   public loginHandler(): void {
     this._authService.logged = true;

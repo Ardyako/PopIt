@@ -7,8 +7,8 @@ import { IFilm } from '../models/dashboard';
 })
 export class SortCategoryPipe implements PipeTransform {
 
-  transform(films: Array<IFilm> | null, category: string): Array<IFilm> {
-    if (category == 'All') {
+  public transform(films: Array<IFilm> | null, category: string): Array<IFilm> {
+    if (category === 'All') {
       return (films ?? []);
     }
 

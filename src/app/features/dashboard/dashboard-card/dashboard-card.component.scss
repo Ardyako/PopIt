@@ -1,22 +1,30 @@
 :host {
   display: block;
+
   .dashboard-card {
     display: grid;
-    grid-template-columns: auto 1fr 1fr;
+
     background-color: aqua;
+
+    grid-template-columns: auto 1fr 1fr;
   }
-  .dashboard-card__watch-list-button {
-    margin-left: 10px;
+
+  .dashboard-card--watch-list-button {
     align-self: end;
+    margin-left: 10px;
   }
-  .dashboard-card__detail-buttons-field {
-    text-align: right;
+
+  .dashboard-card--detail-buttons-field {
     align-self: center;
+
+    text-align: right;
   }
-  .dashboard-card__detail-button-detail {
+
+  .dashboard-card--detail-button-detail {
     margin: 5px;
   }
-  .dashboard-card__detail-button-edit {
+
+  .dashboard-card--detail-button-edit {
     margin: 5px;
   }
 }

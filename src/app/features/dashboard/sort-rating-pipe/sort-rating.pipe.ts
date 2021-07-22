@@ -1,5 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+import { NIL } from '@mf-app/shared/constants';
+
 import { IFilm } from '../models/dashboard';
 
 @Pipe({
@@ -7,14 +9,14 @@ import { IFilm } from '../models/dashboard';
 })
 export class SortRatingPipe implements PipeTransform {
 
-  transform(films: Array<IFilm> | null, args: string): Array<IFilm> {
+  public transform(films: Array<IFilm> | null, args: string): Array<IFilm> {
     return (films ?? []).sort((a, b) => {
-      if (args == 'ascending') {
+      if (args === 'ascending') {
         return a.rating - b.rating;
-      } else if (args == 'descending') {
+      } else if (args === 'descending') {
         return b.rating - a.rating;
       }
-      return 0;
+      return NIL;
     });
   }
 

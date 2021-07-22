@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthService {
 
-  private _logged!: boolean;
+  private _isLogged!: boolean;
   public get logged(): boolean {
-    return this._logged;
+    return this._isLogged;
   }
 
   public set logged(value: boolean) {
-    this._logged = value;
+    this._isLogged = value;
   }
 
   public loggedIn(): boolean {

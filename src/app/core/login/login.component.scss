@@ -1,11 +1,14 @@
 :host {
   display: block;
-  text-align: center;
   margin-top: 10%;
-  .login__button {
+
+  text-align: center;
+
+  .login--button {
     margin: 10px;
   }
-  .login__input {
+
+  .login--input {
     margin: 10px;
   }
 }

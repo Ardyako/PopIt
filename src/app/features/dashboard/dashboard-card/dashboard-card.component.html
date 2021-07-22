@@ -1,42 +1,42 @@
 <mat-card class="dashboard-card">
-    <div>
-        <mat-card-title>{{film?.title}}</mat-card-title>
-        <mat-card-subtitle>Category: {{film?.category}}</mat-card-subtitle>
-        <mat-card-subtitle>Rating: {{film?.rating}}</mat-card-subtitle>
-    </div>
-    <div class="dashboard-card__watch-list-button">
-        <button
-            mat-raised-button
-            *ngIf="!(watch$ | async)"
-            (click)="addWatchHandler()"
-        >
-            Add to watch list
-        </button>
-        <button
-            mat-raised-button
-            color="accent"
-            *ngIf="(watch$ | async)"
-            (click)="deleteWatchHandler()"
-        >
-            Delete from watch list
-        </button>
-    </div>
-    <div class="dashboard-card__detail-buttons-field">
-        <button
-            mat-fab
-            color="primary"
-            class="dashboard-card__detail-button-detail"
-            (click)="detailHandler(film!.id)"
-        >
-            Details
-        </button>
-        <button
-            mat-fab
-            color="primary"
-            class="dashboard-card__detail-button-edit"
-            (click)="editHandler(film!.id)"
-        >
-            EDIT
-        </button>
-    </div>
+  <div>
+    <mat-card-title>{{film?.title}}</mat-card-title>
+    <mat-card-subtitle>Category: {{film?.category}}</mat-card-subtitle>
+    <mat-card-subtitle>Rating: {{film?.rating}}</mat-card-subtitle>
+  </div>
+  <div class="dashboard-card--watch-list-button">
+    <button
+      mat-raised-button
+      *ngIf="(watch$ | async) !== true"
+      (click)="addWatchHandler()"
+    >
+      Add to watch list
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      *ngIf="(watch$ | async)"
+      (click)="deleteWatchHandler()"
+    >
+      Delete from watch list
+    </button>
+  </div>
+  <div class="dashboard-card--detail-buttons-field">
+    <button
+      mat-fab
+      color="primary"
+      class="dashboard-card--detail-button-detail"
+      (click)="detailHandler()"
+    >
+      Details
+    </button>
+    <button
+      mat-fab
+      color="primary"
+      class="dashboard-card--detail-button-edit"
+      (click)="editHandler()"
+    >
+      EDIT
+    </button>
+  </div>
 </mat-card>

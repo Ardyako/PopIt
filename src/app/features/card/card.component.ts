@@ -1,16 +1,20 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Observable, of } from 'rxjs';
+
+import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-import { DataService } from 'src/app/shared/data-service/data.service';
+import { DataService } from '@mf-app/shared/data-service/data.service';
+
+
+import { ONE } from '@mf-app/shared/constants';
 
 import { DASHBOARD_PATH } from '../dashboard';
 import { IFilm } from '../dashboard/models/dashboard';
 
 @Component({
-  selector: 'app-card',
+  selector: 'mf-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,34 +27,34 @@ export class CardComponent implements OnInit {
     return this._film$;
   }
 
-  private _watchStatus: boolean;
+  private _isWatchStatus: boolean;
   public get watchStatus(): boolean {
-    return this._watchStatus;
+    return this._isWatchStatus;
   }
 
-  constructor(
+  public constructor(
     private _router: Router,
     private _route: ActivatedRoute,
     private _dataService: DataService,
   ) {
-    this._watchStatus = this._route.snapshot.data.cardDetails;
+    this._isWatchStatus = this._route.snapshot.data.cardDetails;
   }
 
-  ngOnInit(): void {
-    const id = parseInt(this._route.snapshot.paramMap.get('id')!);
+  public ngOnInit(): void {
+    const id = Number(this._route.snapshot.paramMap.get('id'));
     this._film$ = this._dataService.getDescription(id);
   }
 
   public watchHandler(film: IFilm): void {
-    this._dataService.addFilmToWatchList(film).pipe(take(1))
+    this._dataService.addFilmToWatchList(film).pipe(take(ONE))
       .subscribe();
-    this._watchStatus = true;
+    this._isWatchStatus = true;
   }
 
   public deletewatchHandler(id: number): void {
-    this._dataService.deleteFilmFromWatchList(id).pipe(take(1))
+    this._dataService.deleteFilmFromWatchList(id).pipe(take(ONE))
       .subscribe();
-    this._watchStatus = false;
+    this._isWatchStatus = false;
   }
 
   public backHandler(): void {

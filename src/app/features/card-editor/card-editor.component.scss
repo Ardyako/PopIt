@@ -1,14 +1,18 @@
 :host {
   display: block;
+
   .card-editor {
     display: grid;
     margin: 10% 30%;
+
     background-color: aqua;
   }
+
   .card-editor-fotter {
     text-align: end;
   }
-  .card-editor__back-button {
+
+  .card-editor--back-button {
     margin: 5px;
   }
 }

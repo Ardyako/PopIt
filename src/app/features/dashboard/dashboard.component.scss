@@ -1,18 +1,23 @@
 :host {
   display: block;
+
   .dashboard {
     margin: 10px 25%;
   }
-  .dashboard__title {
+
+  .dashboard--title {
     text-align: center;
   }
-  .dashboard__sort-rating-button {
+
+  .dashboard--sort-rating-button {
     margin: 5px;
   }
-  .dashboard__logOff-button {
+
+  .dashboard--logoff-button {
     float: right;
   }
-  .dashboard__card-margin {
+
+  .dashboard--card-margin {
     margin: 10px;
   }
 }

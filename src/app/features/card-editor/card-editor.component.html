@@ -1,101 +1,101 @@
 <form
-    [formGroup]="cardEditorForm"
-    (ngSubmit)="submitHandler()"
+  [formGroup]="cardEditorForm"
+  (ngSubmit)="submitHandler()"
 >
-    <mat-card class="card-editor">
-        <mat-form-field appearance="fill">
-            <mat-label>Title</mat-label>
-            <input
-                matInput
-                formControlName="title"
-            >
-            <small
-                class="mat-error"
-                *ngIf="title!.errors?.required"
-            >
-                Please, input title
-            </small>
-            <small
-                class="mat-error"
-                *ngIf="title!.errors?.maxlength"
-            >
-                Max 10 characters
-            </small>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Category</mat-label>
-            <input
-                matInput
-                formControlName="category"
-            >
-            <small
-                class="mat-error"
-                *ngIf="category!.errors?.required"
-            >
-                Please, input category
-            </small>
-            <small
-                class="mat-error"
-                *ngIf="category!.errors?.maxlength"
-            >
-                Max 10 characters
-            </small>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Rating</mat-label>
-            <input
-                matInput
-                formControlName="rating"
-            >
-            <small
-                class="mat-error"
-                *ngIf="rating!.errors?.required"
-            >
-                Please, input rating
-            </small>
-            <small
-                class="mat-error"
-                *ngIf="rating!.errors?.pattern"
-            >
-                only numbers from 1 to 10
-            </small>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Description</mat-label>
-            <input
-                matInput
-                formControlName="description"
-            >
-            <small
-                class="mat-error"
-                *ngIf="description!.errors?.required"
-            >
-                Please, input description
-            </small>
-            <small
-                class="mat-error"
-                *ngIf="description!.errors?.maxlength"
-            >
-                Max 100 characters
-            </small>
-        </mat-form-field>
-        <mat-card-footer class="card-editor-fotter">
-            <button
-                mat-raised-button
-                color="accent"
-                type="submit"
-                [disabled]="cardEditorForm.invalid"
-            >
-                EDIT
-            </button>
-            <button
-                mat-raised-button
-                color="primary"
-                class="card-editor__back-button"
-                (click)="backHandler()"
-            >
-                Back
-            </button>
-        </mat-card-footer>
-    </mat-card>
+  <mat-card class="card-editor">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input
+        matInput
+        formControlName="title"
+      >
+      <small
+        class="mat-error"
+        *ngIf="title!.errors?.required"
+      >
+        Please, input title
+      </small>
+      <small
+        class="mat-error"
+        *ngIf="title!.errors?.maxlength"
+      >
+        Max 10 characters
+      </small>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <input
+        matInput
+        formControlName="category"
+      >
+      <small
+        class="mat-error"
+        *ngIf="category!.errors?.required"
+      >
+        Please, input category
+      </small>
+      <small
+        class="mat-error"
+        *ngIf="category!.errors?.maxlength"
+      >
+        Max 10 characters
+      </small>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Rating</mat-label>
+      <input
+        matInput
+        formControlName="rating"
+      >
+      <small
+        class="mat-error"
+        *ngIf="rating!.errors?.required"
+      >
+        Please, input rating
+      </small>
+      <small
+        class="mat-error"
+        *ngIf="rating!.errors?.pattern"
+      >
+        only numbers from 1 to 10
+      </small>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        formControlName="description"
+      >
+      <small
+        class="mat-error"
+        *ngIf="description!.errors?.required"
+      >
+        Please, input description
+      </small>
+      <small
+        class="mat-error"
+        *ngIf="description!.errors?.maxlength"
+      >
+        Max 100 characters
+      </small>
+    </mat-form-field>
+    <mat-card-footer class="card-editor-fotter">
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        [disabled]="cardEditorForm.invalid"
+      >
+        EDIT
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="card-editor--back-button"
+        (click)="backHandler()"
+      >
+        Back
+      </button>
+    </mat-card-footer>
+  </mat-card>
 </form>

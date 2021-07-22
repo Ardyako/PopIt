@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { CardEditorRoutingModule, CARD_ROUTING_COMPONENTS } from './card-editor-routing.module';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '@mf-app/shared/shared.module';
 
 
 @NgModule({

@@ -4,12 +4,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { take } from 'rxjs/operators';
 
-import { DataService } from 'src/app/shared/data-service/data.service';
+import { DataService } from '@mf-app/shared/data-service/data.service';
+
+
+import { ONE, ONE_HUNDRED, TEN } from '@mf-app/shared/constants';
 
 import { DASHBOARD_PATH } from '../dashboard';
 
 @Component({
-  selector: 'app-card-editor',
+  selector: 'mf-card-editor',
   templateUrl: './card-editor.component.html',
   styleUrls: ['./card-editor.component.scss'],
 })
@@ -41,23 +44,23 @@ export class CardEditorComponent implements OnInit {
     return this._id;
   }
 
-  constructor(
+  public constructor(
     private _formBuilder: FormBuilder,
     private _router: Router,
     private _route: ActivatedRoute,
     private _dataService: DataService,
   ) {
-    this._id = parseInt(this._route.snapshot.paramMap.get('id')!);
+    this._id = Number(this._route.snapshot.paramMap.get('id'));
     this._cardEditorForm = this._formBuilder.group({
-      title: ['', [Validators.required, Validators.maxLength(10)]],
-      category: ['', [Validators.required, Validators.maxLength(10)]],
+      title: ['', [Validators.required, Validators.maxLength(TEN)]],
+      category: ['', [Validators.required, Validators.maxLength(TEN)]],
       rating: ['', [Validators.required, Validators.pattern(/^([1-9]|10)$/)]],
-      description: ['', [Validators.required, Validators.maxLength(100)]],
+      description: ['', [Validators.required, Validators.maxLength(ONE_HUNDRED)]],
     });
   }
 
-  ngOnInit(): void {
-    this._dataService.getDescription(this.id).pipe(take(1))
+  public ngOnInit(): void {
+    this._dataService.getDescription(this.id).pipe(take(ONE))
       .subscribe(
         data => {
           this._cardEditorForm.patchValue({
@@ -76,13 +79,12 @@ export class CardEditorComponent implements OnInit {
 
   public submitHandler(): void {
     this._dataService.updateFilmData(this.cardEditorForm.value, this.id)
-      .pipe(take(1))
+      .pipe(take(ONE))
       .subscribe(
-        data => {
-          console.log('Film data has been updated!');
+        () => {
           this._router.navigate([DASHBOARD_PATH]);
         },
-        error => console.log('Error!'),
+        () => console.log('Error!'),
       );
   }
 

@@ -1,45 +1,45 @@
 <mat-card class="dashboard">
 
-    <mat-card-title class="dashboard__title">MoviesBase!</mat-card-title>
-    <div>
-        <button
-            mat-raised-button
-            class="dashboard__sort-rating-button"
-            (click)="sortRatingHandler()"
+  <mat-card-title class="dashboard--title">MoviesBase!</mat-card-title>
+  <div>
+    <button
+      mat-raised-button
+      class="dashboard--sort-rating-button"
+      (click)="sortRatingHandler()"
+    >
+      Sort rating {{sortRating}}
+    </button>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Sort by category</mat-label>
+      <mat-select
+        [(value)]="selected"
+        (selectionChange)="selectCategoryHandler($event.value)"
+      >
+        <mat-option value="All">All</mat-option>
+        <mat-option
+          *ngFor="let category of (films$ | async)! | unique"
+          [value]="category"
         >
-            Sort rating {{sortRating}}
-        </button>
+          {{category}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Sort by category</mat-label>
-            <mat-select
-                [(value)]="selected"
-                (selectionChange)="selectCategoryHandler($event.value)"
-            >
-                <mat-option value="All">All</mat-option>
-                <mat-option
-                    *ngFor="let category of (films$ | async) | unique: 'category'"
-                    [value]="category"
-                >
-                    {{category}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+    <button
+      mat-raised-button
+      color="warn"
+      class="dashboard--logoff-button"
+      (click)="logOffHandler()"
+    >
+      Log Off
+    </button>
+  </div>
 
-        <button
-            mat-raised-button
-            color='warn'
-            class="dashboard__logOff-button"
-            (click)="logOffHandler()"
-        >
-            Log Off
-        </button>
-    </div>
-
-    <app-dashboard-card
-        class="dashboard__card-margin"
-        *ngFor="let film of (films$ | async) | sortCategory: sortCategory | sortRating: sortRating"
-        [film]="film"
-    ></app-dashboard-card>
+  <mf-dashboard-card
+    class="dashboard--card-margin"
+    *ngFor="let film of (films$ | async) | sortCategory: sortCategory | sortRating: sortRating"
+    [film]="film"
+  ></mf-dashboard-card>
 
 </mat-card>

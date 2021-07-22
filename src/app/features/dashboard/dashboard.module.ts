@@ -6,7 +6,7 @@ import { SortCategoryPipe } from './sort-category-pipe/sort-category.pipe';
 import { UniguePipe } from './unique-pipe/unique.pipe';
 
 import { DashboardRoutingModule, DASHBOARD_ROUTING_COMPONENTS } from './dashboard-routing.module';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '@mf-app/shared/shared.module';
 
 
 @NgModule({
