@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { MatDialog } from '@angular/material/dialog';
 
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
+
+import { PopUpComponent } from '@mf-app/shared/pop-up/pop-up.component';
 
 import { DataService } from '@mf-app/shared/data-service/data.service';
 
@@ -40,6 +42,7 @@ export class CardComponent implements OnInit {
     private _router: Router,
     private _route: ActivatedRoute,
     private _dataService: DataService,
+    private _dialog: MatDialog,
   ) {
     this._id = Number(this._route.snapshot.paramMap.get('id'));
     this._isWatchStatus = this._route.snapshot.data.cardDetails;
@@ -66,7 +69,7 @@ export class CardComponent implements OnInit {
   }
 
   public feedbackOpen(): void {
-    console.log('qweqwe');
+    this._dialog.open(PopUpComponent);
   }
 
 }

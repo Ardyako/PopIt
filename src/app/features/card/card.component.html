@@ -1,9 +1,9 @@
 <mat-card class="card">
-  <mat-card-title *ngIf="(film$ | async)!.title !== null">Title: {{(film$ | async)!.title}}</mat-card-title>
-  <mat-card-subtitle>Category: {{(film$ | async)!.category}}</mat-card-subtitle>
-  <mat-card-subtitle>Rating: {{(film$ | async)!.rating}}</mat-card-subtitle>
-  <mat-card-content>{{(film$ | async)!.description}}</mat-card-content>
-  <mat-card-content>{{(film$ | async)!.feedback}}</mat-card-content>
+  <mat-card-title>Title: {{(film$ | async)?.title}}</mat-card-title>
+  <mat-card-subtitle>Category: {{(film$ | async)?.category}}</mat-card-subtitle>
+  <mat-card-subtitle>Rating: {{(film$ | async)?.rating}}</mat-card-subtitle>
+  <mat-card-content>{{(film$ | async)?.description}}</mat-card-content>
+  <mat-card-content>{{(film$ | async)?.feedback}}</mat-card-content>
   <button
     mat-raised-button
     color="primary"
