@@ -15,6 +15,7 @@ export class LoaderComponent {
     return this._loaderService;
   }
 
-  public constructor(private _loaderService: LoaderService) { }
+  public constructor(private _loaderService: LoaderService) {
+  }
 
 }

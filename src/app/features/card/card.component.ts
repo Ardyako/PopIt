@@ -7,7 +7,6 @@ import { take } from 'rxjs/operators';
 
 import { DataService } from '@mf-app/shared/data-service/data.service';
 
-
 import { ONE } from '@mf-app/shared/constants';
 
 import { DASHBOARD_PATH } from '../dashboard';
@@ -32,17 +31,22 @@ export class CardComponent implements OnInit {
     return this._isWatchStatus;
   }
 
+  private _id: number;
+  public get id(): number {
+    return this._id;
+  }
+
   public constructor(
     private _router: Router,
     private _route: ActivatedRoute,
     private _dataService: DataService,
   ) {
+    this._id = Number(this._route.snapshot.paramMap.get('id'));
     this._isWatchStatus = this._route.snapshot.data.cardDetails;
   }
 
   public ngOnInit(): void {
-    const id = Number(this._route.snapshot.paramMap.get('id'));
-    this._film$ = this._dataService.getDescription(id);
+    this._film$ = this._dataService.getDescription(this._id);
   }
 
   public watchHandler(film: IFilm): void {
@@ -51,14 +55,18 @@ export class CardComponent implements OnInit {
     this._isWatchStatus = true;
   }
 
-  public deletewatchHandler(id: number): void {
-    this._dataService.deleteFilmFromWatchList(id).pipe(take(ONE))
+  public deletewatchHandler(): void {
+    this._dataService.deleteFilmFromWatchList(this._id).pipe(take(ONE))
       .subscribe();
     this._isWatchStatus = false;
   }
 
   public backHandler(): void {
     this._router.navigate([DASHBOARD_PATH]);
+  }
+
+  public feedbackOpen(): void {
+    console.log('qweqwe');
   }
 
 }

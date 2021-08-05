@@ -7,12 +7,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 
 import { DataService } from './data-service/data.service';
+import { WindowService } from '@mf-app/shared/window-service/window.service';
 
 
 @NgModule({
   declarations: [],
   providers: [
     DataService,
+    WindowService,
   ],
   imports: [
     CommonModule,

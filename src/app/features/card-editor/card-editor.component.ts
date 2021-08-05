@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -15,6 +15,7 @@ import { DASHBOARD_PATH } from '../dashboard';
   selector: 'mf-card-editor',
   templateUrl: './card-editor.component.html',
   styleUrls: ['./card-editor.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardEditorComponent implements OnInit {
 

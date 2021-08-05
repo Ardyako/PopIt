@@ -7,10 +7,13 @@ import { IFilm } from '@mf-app/features/dashboard/models/dashboard';
 })
 export class UniguePipe implements PipeTransform {
 
-  public transform(value: Array<IFilm>): Array<string> {
-    return value
-      .map((data: IFilm) => data.category)
-      .filter((v, i, a) => a.indexOf(v) === i);
+  public transform(value: Array<IFilm>): Array<string> | null {
+    if (value){
+      return value
+        .map((data: IFilm) => data.category)
+        .filter((v, i, a) => a.indexOf(v) === i);
+    }
+    return null;
   }
 
 }

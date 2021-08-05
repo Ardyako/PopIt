@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -20,18 +20,21 @@ import { IFilm } from '../models/dashboard';
   styleUrls: ['./dashboard-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardCardComponent {
+export class DashboardCardComponent implements OnInit {
 
   @Input()
   public film!: IFilm;
 
   @Input()
-  public watch$: Observable<boolean>;
+  public watch$!: Observable<boolean>;
 
   public constructor(
     private _dataService: DataService,
     private _router: Router,
   ) {
+  }
+
+  public ngOnInit(): void {
     this.watch$ = this._dataService.getWatchList(this.film.id);
   }
 
